@@ -1,3 +1,3 @@
-# Pagina-web
+## Inicio del proyecto de dashboard UI comida COMIFAST
 
-Inicio de la pagina web.
+1. ejecutar el comando "npm i" para las dependencias
