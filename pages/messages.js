@@ -5,7 +5,7 @@ const Messages = () => {
   return (
     <Layout title="Messages" description="">
       {/* Inicio del contenido dashboard */}
-      <h2 className="text-xl text-center text-[#012970] dark:text-white font-bold">
+      <h2 className="text-xl text-center text-[#012970] dark:text-white text-title">
         Messages
       </h2>
       <p className="mt-3">

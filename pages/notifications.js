@@ -5,7 +5,7 @@ const Notifications = () => {
   return (
     <Layout title="Notifications" description="">
       {/* Inicio del contenido dashboard */}
-      <h2 className="text-xl text-center text-[#012970] dark:text-white font-bold">
+      <h2 className="text-xl text-center text-[#012970] dark:text-white text-title">
         Notifications
       </h2>
       <p className="mt-3">

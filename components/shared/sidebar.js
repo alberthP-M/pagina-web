@@ -33,15 +33,15 @@ const Sidebar = ({ toggleOrder, showOrder }) => {
       {/* Sidebar */}
       <div
         className={`bg-white z-50 dark:bg-[#1F1D2B] fixed overflow-y-scroll scrollbar-hide transition-all ${
-          opennav ? "left-0 bottom-24" : "-left-full bottom-24"
-        } w-24 sm:w-28 top-0 lg:bottom-0 lg:left-0 py-5 flex flex-col justify-between rounded-r-2xl`}
+          opennav ? "left-0 bottom-[5.5rem]" : "-left-full bottom-[5.5rem]"
+        } w-20 sm:w-28 top-0 lg:bottom-0 lg:left-0 py-5 flex flex-col shadow-md justify-between rounded-r-2xl`}
       >
-        <ul className="pl-3 sm:pl-4">
+        <ul className="pl-2 sm:pl-4">
           <li>
             <Link aria-label="home" href="/">
               <span>
                 <Image
-                  className="text-center mx-auto mb-4"
+                  className="text-center mx-auto mb-4 w-10 md:w-12 lg:w-14"
                   src="/logo.png"
                   width={50}
                   height={50}
@@ -101,7 +101,7 @@ const Sidebar = ({ toggleOrder, showOrder }) => {
             </Link>
           </li>
         </ul>
-        <ul className="pl-4">
+        <ul className="pl-2 sm:pl-4">
           <li className="lista">
             <Link href="#" legacyBehavior>
               <a aria-label="Logout">
@@ -112,7 +112,7 @@ const Sidebar = ({ toggleOrder, showOrder }) => {
         </ul>
       </div>
       {/* Sidebar collapse nav mobile */}
-      <nav className="bg-white dark:bg-[#282637] mx-4 fixed bottom-5 right-0 left-0 px-4 py-3 rounded-3xl flex justify-around shadow-lg dark:shadow-gray-900 dark:border-t-[1px] dark:border-[#242231] lg:hidden">
+      <nav className="bg-white dark:bg-[#282637] mx-4 fixed z-50 bottom-3 right-0 left-0 px-4 py-3 rounded-3xl flex justify-around shadow-lg dark:shadow-gray-900 dark:border-t-[1px] dark:border-[#242231] lg:hidden">
         {/* reutilzidando coidog del sidebar */}
         <button
           aria-labelledby="menu"

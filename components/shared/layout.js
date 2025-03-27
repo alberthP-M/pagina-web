@@ -63,9 +63,12 @@ const Layout = ({ children, title = "", description = "" }) => {
       </Head>
       {/* pasamos los parametros del toogle para los icons */}
       <Sidebar toggleOrder={toggleOrder} showOrder={showOrder} />
-      <div className="min-h-screen lg:pl-28 lg:flex transition-all">
+      {/* seccion de tamaño clave para el scrroll */}
+      <div className="h-screen overflow-y-scroll scrollbar-hide lg:pl-28 lg:flex transition-all">
         <div
-          className={`transition-all ${showOrder ? "lg:w-9/12" : "lg:w-full"}`}
+          className={`transition-all min-h-screen overflow-y-scroll scrollbar-hide ${
+            showOrder ? "lg:w-9/12" : "lg:w-full"
+          }`}
         >
           <header className="p-4 transition-all">
             <div className="flex justify-between items-center">
@@ -78,9 +81,13 @@ const Layout = ({ children, title = "", description = "" }) => {
                   alt="Avatar Usuario"
                 />
                 <div>
-                  <h2 className="text-xl font-bold">{profile.name}</h2>
+                  <h2 className="text-lg md:text-xl text-title">
+                    {profile.name}
+                  </h2>
                   {/* <p className="text-gray-400">{fechaFormateada}</p> */}
-                  <p className="text-gray-600">{fechaFormateada}</p>
+                  <p className="text-sm md:text-base text-gray-600">
+                    {fechaFormateada}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -94,18 +101,18 @@ const Layout = ({ children, title = "", description = "" }) => {
                   onClick={toggle}
                 >
                   {showSearch ? (
-                    <RiCloseLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+                    <RiCloseLine className="text-lg md:text-xl text-[#012970] dark:text-[#ec7c6a]" />
                   ) : (
-                    <RiSearchLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+                    <RiSearchLine className="text-lg md:text-xl text-[#012970] dark:text-[#ec7c6a]" />
                   )}
                 </button>
 
                 <form className="pr-1 transition-all hidden lg:block">
                   <div className="w-full relative group transition-all">
-                    <RiSearchLine className="text-gray-600 absolute text-md left-2 top-1/2 -translate-y-1/2  cursor-pointer group-focus-within:font-bold" />
+                    <RiSearchLine className="text-gray-600 absolute text-md left-2 top-1/2 -translate-y-1/2  cursor-pointer group-focus-within:text-title" />
                     <input
                       placeholder="Search"
-                      className="w-full outline-none shadow-md rounded-lg py-2 pl-8 pr-2 bg-[#f6f9ff] dark:bg-[#262837] focus:shadow-blue-100 focus:dark:shadow-[#ec7b6a3a] "
+                      className="w-full outline-none shadow-md rounded-lg py-2 pl-8 pr-2 bg-[#f6f9ff] dark:bg-[#252837] focus:shadow-blue-100 focus:dark:shadow-[#ec7b6a3a] "
                       type="text"
                     />
                   </div>
@@ -120,7 +127,7 @@ const Layout = ({ children, title = "", description = "" }) => {
                     onClick={() => setTheme("light")}
                     className="navLink"
                   >
-                    <RiSunLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+                    <RiSunLine className="text-lg md:text-xl text-[#012970] dark:text-[#ec7c6a]" />
                   </button>
                 ) : (
                   <button
@@ -130,7 +137,7 @@ const Layout = ({ children, title = "", description = "" }) => {
                     onClick={() => setTheme("dark")}
                     className="navLink"
                   >
-                    <RiMoonLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+                    <RiMoonLine className="text-lg md:text-xl text-[#012970] dark:text-[#ec7c6a]" />
                   </button>
                 )}
 
@@ -159,17 +166,17 @@ const Layout = ({ children, title = "", description = "" }) => {
               }`}
             >
               <div className="w-full relative group transition-all">
-                <RiSearchLine className="text-gray-600 absolute text-md left-2 top-1/2 -translate-y-1/2  cursor-pointer group-focus-within:font-bold" />
+                <RiSearchLine className="text-gray-600 absolute text-md left-2 top-1/2 -translate-y-1/2  cursor-pointer group-focus-within:text-title" />
                 <input
                   placeholder="Search"
-                  className="w-full outline-none shadow-md rounded-lg py-2 pl-8 pr-2 bg-[#f6f9ff] dark:bg-[#262837] focus:shadow-blue-100 focus:dark:shadow-[#ec7b6a3a] "
+                  className="w-full outline-none shadow-md rounded-lg py-2 pl-8 pr-2 bg-[#f6f9ff] dark:bg-[#252837] focus:shadow-blue-100 focus:dark:shadow-[#ec7b6a3a] "
                   type="text"
                 />
               </div>
             </form>
           </header>
           {/* seccion para escribir todo */}
-          <main className="p-4">{children}</main>
+          <main className="p-4 pb-24 lg:pb-4">{children}</main>
         </div>
         <Order showOrder={showOrder} />
       </div>

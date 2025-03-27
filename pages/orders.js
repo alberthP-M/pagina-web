@@ -10,7 +10,7 @@ const Orders = () => {
         description="Explore all the orders you made with us"
       >
         {/* Inicio del contenido dashboard */}
-        <h2 className="text-xl text-center text-[#012970] dark:text-white font-bold">
+        <h2 className="text-xl text-center text-[#012970] dark:text-white text-title">
           Made orders section
         </h2>
         <p className="mt-3">

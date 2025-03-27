@@ -8,7 +8,7 @@ const Calendar = () => {
       description="Explore the meals that will be prepared each day"
     >
       {/* Inicio del contenido dashboard */}
-      <h2 className="text-xl text-center text-[#012970] dark:text-white font-bold">
+      <h2 className="text-xl text-center text-[#012970] dark:text-white text-title">
         Meal Calendar
       </h2>
       <p className="mt-3">
