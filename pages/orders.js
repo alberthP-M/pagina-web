@@ -9,10 +9,16 @@ const Orders = () => {
         title="All Orders"
         description="Explore all the orders you made with us"
       >
-        <div className="flex items-center justify-center w-full min-h-screen">
-          Orden
-        </div>
-        <Sidebar />
+        {/* Inicio del contenido dashboard */}
+        <h2 className="text-xl text-center text-[#012970] dark:text-white font-bold">
+          Made orders section
+        </h2>
+        <p className="mt-3">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
+          inventore aperiam optio natus, non labore necessitatibus beatae totam
+          tempore delectus exercitationem. Consequatur sint dignissimos
+          voluptatem eligendi dolorem odit distinctio officiis.
+        </p>
       </Layout>
     </>
   );

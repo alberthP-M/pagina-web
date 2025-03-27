@@ -30,6 +30,9 @@ body {
   .lista .icon {
     @apply text-3xl mx-auto text-[#012970] dark:text-[#ec7c6a];
   }
+  .font-bold {
+    @apply text-[#012970] dark:text-[#ec7c6a];
+  }
   /* #012970 */
 }
 

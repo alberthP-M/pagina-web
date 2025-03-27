@@ -12,37 +12,21 @@ import {
   RiLogoutCircleRLine,
   RiMenu2Fill,
   RiUserLine,
-  RiSearchLine,
+  RiCalendarTodoLine,
   RiCloseLine,
-  RiSunLine,
-  RiMoonLine,
 } from "react-icons/ri";
+import Header from "./header";
 
-const Sidebar = () => {
+const Sidebar = ({ toggleOrder, showOrder }) => {
   const [opennav, setOpennav] = useState(false);
 
   const toggle = () => {
     setOpennav(!opennav);
-    console.log(opennav);
+    // console.log(opennav);
   };
 
   // para asignar al elemento activo
   const router = useRouter();
-
-  // Seccion de darkmode
-  const [mounted, setMounted] = useState(false);
-  const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
-
-  // arreglando el problema del doble renderizado
-  // useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <>
@@ -54,7 +38,7 @@ const Sidebar = () => {
       >
         <ul className="pl-3 sm:pl-4">
           <li>
-            <Link href="/">
+            <Link aria-label="home" href="/">
               <span>
                 <Image
                   className="text-center mx-auto mb-4"
@@ -69,7 +53,7 @@ const Sidebar = () => {
           </li>
           <li className={router.pathname === "/" ? "listaActiva" : "lista"}>
             <Link href="/" legacyBehavior>
-              <a>
+              <a aria-label="home">
                 <RiHome5Line className="icon" />
               </a>
             </Link>
@@ -78,7 +62,7 @@ const Sidebar = () => {
             className={router.pathname === "/orders" ? "listaActiva" : "lista"}
           >
             <Link href="/orders" legacyBehavior>
-              <a>
+              <a aria-label="orders">
                 <RiPieChart2Line className="icon" />
               </a>
             </Link>
@@ -89,39 +73,41 @@ const Sidebar = () => {
             }
           >
             <Link href="/messages" legacyBehavior>
-              <a>
+              <a aria-label="messages">
                 <RiMailLine className="icon" />
               </a>
             </Link>
           </li>
           <li
             className={
-              router.pathname === "/notification" ? "listaActiva" : "lista"
+              router.pathname === "/notifications" ? "listaActiva" : "lista"
             }
           >
             <Link href="/notifications" legacyBehavior>
-              <a>
+              <a aria-label="notifications">
                 <RiNotification3Line className="icon" />
               </a>
             </Link>
           </li>
           <li
             className={
-              router.pathname === "/settings" ? "listaActiva" : "lista"
+              router.pathname === "/calendar" ? "listaActiva" : "lista"
             }
           >
-            <Link href="/settings" legacyBehavior>
-              <a>
-                <RiSettings3Line className="icon" />
+            <Link href="/calendar" legacyBehavior>
+              <a aria-label="calendar">
+                <RiCalendarTodoLine className="icon" />
               </a>
             </Link>
           </li>
         </ul>
         <ul className="pl-4">
           <li className="lista">
-            <a onClick={() => {}}>
-              <RiLogoutCircleRLine className="icon" />
-            </a>
+            <Link href="#" legacyBehavior>
+              <a aria-label="Logout">
+                <RiLogoutCircleRLine className="icon" />
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -129,6 +115,9 @@ const Sidebar = () => {
       <nav className="bg-white dark:bg-[#282637] mx-4 fixed bottom-5 right-0 left-0 px-4 py-3 rounded-3xl flex justify-around shadow-lg dark:shadow-gray-900 dark:border-t-[1px] dark:border-[#242231] lg:hidden">
         {/* reutilzidando coidog del sidebar */}
         <button
+          aria-labelledby="menu"
+          aria-label="menu"
+          role="button"
           onClick={toggle}
           className={`navLink ${
             opennav ? "shadow-blue-100 dark:shadow-[#ec7b6a3a]" : ""
@@ -141,21 +130,37 @@ const Sidebar = () => {
           )}
         </button>
 
-        {currentTheme === "dark" ? (
-          <button onClick={() => setTheme("light")} className="navLink">
-            <RiSunLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
-          </button>
-        ) : (
-          <button onClick={() => setTheme("dark")} className="navLink">
-            <RiMoonLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
-          </button>
-        )}
-
-        <button className="navLink">
+        <button
+          aria-labelledby="profile"
+          aria-label="profile"
+          role="button"
+          className="navLink"
+        >
           <RiUserLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
         </button>
-        <button className="navLink">
-          <RiPieChart2Line className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+        <button
+          aria-labelledby="profile"
+          aria-label="profile"
+          role="button"
+          className="navLink"
+        >
+          <RiUserLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+        </button>
+        {/* boton para abrir la orden */}
+        <button
+          aria-labelledby="order"
+          aria-label="order"
+          role="button"
+          onClick={toggleOrder}
+          className={`navLink ${
+            showOrder ? "shadow-blue-100 dark:shadow-[#ec7b6a3a]" : ""
+          }`}
+        >
+          {showOrder ? (
+            <RiCloseLine className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+          ) : (
+            <RiPieChart2Line className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
+          )}
         </button>
       </nav>
     </>
