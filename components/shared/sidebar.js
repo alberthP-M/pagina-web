@@ -14,19 +14,28 @@ import {
   RiUserLine,
   RiCalendarTodoLine,
   RiCloseLine,
+  RiPassExpiredFill,
+  RiBrush3Fill,
+  RiMailSettingsLine,
+  RiSettings2Line,
+  RiUserSettingsLine,
 } from "react-icons/ri";
 import Header from "./header";
 
 const Sidebar = ({ toggleOrder, showOrder }) => {
   const [opennav, setOpennav] = useState(false);
 
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken"); // Eliminar el token
+    router.replace("/login"); // Redirigir al login
+  };
+
   const toggle = () => {
     setOpennav(!opennav);
     // console.log(opennav);
   };
-
-  // para asignar al elemento activo
-  const router = useRouter();
 
   return (
     <>
@@ -59,11 +68,22 @@ const Sidebar = ({ toggleOrder, showOrder }) => {
             </Link>
           </li>
           <li
-            className={router.pathname === "/orders" ? "listaActiva" : "lista"}
+            className={router.pathname === "/foods" ? "listaActiva" : "lista"}
           >
-            <Link href="/orders" legacyBehavior>
-              <a aria-label="orders">
+            <Link href="/foods" legacyBehavior>
+              <a aria-label="foods">
                 <RiPieChart2Line className="icon" />
+              </a>
+            </Link>
+          </li>
+          <li
+            className={
+              router.pathname === "/categorys" ? "listaActiva" : "lista"
+            }
+          >
+            <Link href="/categorys" legacyBehavior>
+              <a aria-label="categorys">
+                <RiBrush3Fill className="icon" />
               </a>
             </Link>
           </li>
@@ -80,34 +100,36 @@ const Sidebar = ({ toggleOrder, showOrder }) => {
           </li>
           <li
             className={
-              router.pathname === "/notifications" ? "listaActiva" : "lista"
+              router.pathname === "/personal" ? "listaActiva" : "lista"
             }
           >
-            <Link href="/notifications" legacyBehavior>
-              <a aria-label="notifications">
-                <RiNotification3Line className="icon" />
+            <Link href="/personal" legacyBehavior>
+              <a aria-label="personal">
+                <RiUserSettingsLine className="icon" />
               </a>
             </Link>
           </li>
           <li
             className={
-              router.pathname === "/calendar" ? "listaActiva" : "lista"
+              router.pathname === "/settings" ? "listaActiva" : "lista"
             }
           >
-            <Link href="/calendar" legacyBehavior>
-              <a aria-label="calendar">
-                <RiCalendarTodoLine className="icon" />
+            <Link href="/settings" legacyBehavior>
+              <a aria-label="settings">
+                <RiSettings2Line className="icon" />
               </a>
             </Link>
           </li>
         </ul>
         <ul className="pl-2 sm:pl-4">
           <li className="lista">
-            <Link href="#" legacyBehavior>
-              <a aria-label="Logout">
-                <RiLogoutCircleRLine className="icon" />
-              </a>
-            </Link>
+            <button
+              onClick={handleLogout}
+              aria-label="Logout"
+              className="flex items-center"
+            >
+              <RiLogoutCircleRLine className="icon" />
+            </button>
           </li>
         </ul>
       </div>

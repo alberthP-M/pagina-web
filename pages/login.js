@@ -87,6 +87,15 @@ const Login = () => {
             Iniciar Sesión
           </button>
         </form>
+        <p className="mt-4 text-center text-gray-600 dark:text-gray-300">
+          ¿No tienes una cuenta?{" "}
+          <span
+            className="text-[#012970] dark:text-[#ec7c6a] font-semibold cursor-pointer hover:underline"
+            onClick={() => router.push("/register")}
+          >
+            Regístrate
+          </span>
+        </p>
       </div>
     </div>
   );

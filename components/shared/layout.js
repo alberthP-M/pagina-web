@@ -107,7 +107,7 @@ const Layout = ({ children, title = "", description = "" }) => {
                   )}
                 </button>
 
-                <form className="pr-1 transition-all hidden lg:block">
+                {/*<form className="pr-1 transition-all hidden lg:block">
                   <div className="w-full relative group transition-all">
                     <RiSearchLine className="text-gray-600 absolute text-md left-2 top-1/2 -translate-y-1/2  cursor-pointer group-focus-within:text-title" />
                     <input
@@ -116,7 +116,7 @@ const Layout = ({ children, title = "", description = "" }) => {
                       type="text"
                     />
                   </div>
-                </form>
+                </form> */}
 
                 {/* Dark/ Light */}
                 {currentTheme === "dark" ? (
@@ -142,7 +142,7 @@ const Layout = ({ children, title = "", description = "" }) => {
                 )}
 
                 {/* Show order */}
-                <button
+                {/*<button
                   aria-labelledby="orders"
                   aria-label="orders"
                   role="button"
@@ -156,7 +156,7 @@ const Layout = ({ children, title = "", description = "" }) => {
                   ) : (
                     <RiPieChart2Line className="text-xl text-[#012970] dark:text-[#ec7c6a]" />
                   )}
-                </button>
+                </button>*/}
               </div>
             </div>
             {/* Styles search mobile*/}

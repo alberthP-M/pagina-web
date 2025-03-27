@@ -12,7 +12,7 @@ const categories = {
   broaster: [
     {
       id: 1,
-      title: "Cheap chicken",
+      title: "Cheap Pollo",
       price: 25.99,
       stock: 20,
       img: "/img/grill1.png",
